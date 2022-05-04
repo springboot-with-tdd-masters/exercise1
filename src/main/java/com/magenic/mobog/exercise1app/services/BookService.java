@@ -35,7 +35,7 @@ public class BookService {
 				.toList();
 	}
 	public BookResponse deleteById(Long id) throws BookNotFoundException {
-		Optional<Book> retrieved = Optional.ofNullable(this.repository.getById(id));
+		Optional<Book> retrieved = this.repository.findById(id);
 		if(retrieved.isPresent()) {
 			Book book = retrieved.get();
 			this.repository.delete(book);
