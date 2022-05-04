@@ -34,8 +34,8 @@ public class BookController {
     public ResponseEntity<Book> updateBook(@RequestBody Book book){
         logger.info("Updating Book...");
         bookService.addBook(book);
-
-        return new ResponseEntity<Book>(book,HttpStatus.ACCEPTED);
+        //changed to better status code. either 200 or 204 for updated
+        return new ResponseEntity<Book>(book,HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/book/{id}")
